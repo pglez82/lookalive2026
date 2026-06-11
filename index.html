@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Look Alive — Westerly Centaur 26 for Sale</title>
+  <title data-i18n="pageTitle">Look Alive — Westerly Centaur 26 for Sale</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%AD%85%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,6 +139,61 @@
     .scroll-hint svg {
       width: 24px;
       height: 24px;
+    }
+
+    /* ── Language Switcher ── */
+    .lang-switcher {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 200;
+      display: flex;
+      gap: 0.25rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 0.25rem;
+    }
+
+    .hero .lang-switcher {
+      background: rgba(0,0,0,0.3);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.75rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--white);
+    }
+
+    .lang-btn.active {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .section .lang-switcher {
+      background: rgba(255,255,255,0.6);
+    }
+
+    .section .lang-switcher .lang-btn {
+      color: var(--text-light);
+    }
+
+    .section .lang-switcher .lang-btn.active {
+      background: var(--navy);
+      color: var(--white);
     }
 
     @keyframes bounce {
@@ -641,6 +696,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── Hidden text for i18n ── */
+    [data-i18n] [data-i18n-placeholder] {
+      /* handled via JS */
+    }
   </style>
 </head>
 <body>
@@ -654,19 +714,25 @@
     <button class="nav-dot" data-target="contact" aria-label="Go to contact"></button>
   </nav>
 
+  <!-- Language Switcher -->
+  <div class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="es">ES</button>
+  </div>
+
   <!-- Hero -->
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Sailboat for Sale</p>
-      <h1 class="hero-title">Look Alive</h1>
-      <p class="hero-subtitle">Westerly Centaur 26 — classic British cruiser, ready for adventure</p>
+      <p class="hero-eyebrow" data-i18n="heroEyebrow">Sailboat for Sale</p>
+      <h1 class="hero-title" data-i18n="heroTitle">Look Alive</h1>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">Westerly Centaur 26 — classic British cruiser, ready for adventure</p>
       <div class="hero-tags">
         <span class="hero-tag">1979</span>
-        <span class="hero-tag">8.0 m</span>
-        <span class="hero-tag">Twin Keel</span>
-        <span class="hero-tag">0.9 m Draft</span>
+        <span class="hero-tag">7.9 m</span>
+        <span class="hero-tag" data-i18n="heroTagKeel">Twin Keel</span>
+        <span class="hero-tag">0.9 m <span data-i18n="heroTagDraft">Draft</span></span>
       </div>
     </div>
     <div class="scroll-hint">
@@ -679,67 +745,67 @@
   <!-- About -->
   <section class="section" id="about">
     <div class="fade-in">
-      <h2 class="section-title">About the Boat</h2>
+      <h2 class="section-title" data-i18n="aboutTitle">About the Boat</h2>
       <div class="section-divider"></div>
       <div class="about-grid">
         <div class="about-main">
-          <p>
+          <p data-i18n="aboutPara1">
             The <strong>Westerly Centaur 26</strong> is a cherished English cruising yacht,
             built with solid craftsmanship and designed for comfortable coastal and
             blue-water sailing. With a shallow 0.9 m draft and twin keels, she can
             safely beach in hidden coves and reach anchorages deeper-draft boats cannot.
           </p>
-          <p>
+          <p data-i18n="aboutPara2">
             We bought <em>Look Alive</em> in Burriana, Spain, in 2019 and sailed her
             to Greece in 2020. She spent wonderful summers exploring the Ionian Sea
             before this season setting off on a new adventure around the Mediterranean —
             Italy and Sicily.
           </p>
-          <p>
+          <p data-i18n="aboutPara3">
             She offers surprising internal height — you can stand up inside (up to
             ~1.8 m), making life aboard comfortable for extended cruising.
           </p>
           <div class="price-banner">
             <div>
-              <p class="price-label">Asking Price</p>
+              <p class="price-label" data-i18n="priceLabel">Asking Price</p>
               <p class="price-value">€ 6,000</p>
             </div>
-            <p class="price-location">📍 Currently in Southern Italy — can relocate between Italy &amp; Greece</p>
+            <p class="price-location" data-i18n="priceLocation">📍 Currently in Southern Italy — can relocate between Italy &amp; Greece</p>
           </div>
         </div>
         <div class="specs-card">
-          <h3>Specifications</h3>
+          <h3 data-i18n="specsTitle">Specifications</h3>
           <div class="spec-row">
-            <span class="spec-label">Make / Model</span>
+            <span class="spec-label" data-i18n="specMake">Make / Model</span>
             <span class="spec-value">Westerly Centaur 26</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Year</span>
+            <span class="spec-label" data-i18n="specYear">Year</span>
             <span class="spec-value">1979</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Hull Serial</span>
+            <span class="spec-label" data-i18n="specHull">Hull Serial</span>
             <span class="spec-value">K2341</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Length</span>
+            <span class="spec-label" data-i18n="specLength">Length</span>
             <span class="spec-value">8.0 m</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Beam</span>
+            <span class="spec-label" data-i18n="specBeam">Beam</span>
             <span class="spec-value">2.54 m</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Draft</span>
-            <span class="spec-value">0.9 m (twin keels)</span>
+            <span class="spec-label" data-i18n="specDraft">Draft</span>
+            <span class="spec-value" data-i18n="specDraftValue">0.9 m (twin keels)</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Origin</span>
-            <span class="spec-value">United Kingdom</span>
+            <span class="spec-label" data-i18n="specOrigin">Origin</span>
+            <span class="spec-value" data-i18n="specOriginValue">United Kingdom</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Type</span>
-            <span class="spec-value">Cruising Yacht</span>
+            <span class="spec-label" data-i18n="specType">Type</span>
+            <span class="spec-value" data-i18n="specTypeValue">Cruising Yacht</span>
           </div>
         </div>
       </div>
@@ -749,79 +815,79 @@
   <!-- Features -->
   <section class="section" id="features" style="padding-top: 0;">
     <div class="fade-in">
-      <h2 class="section-title">Equipment & Features</h2>
+      <h2 class="section-title" data-i18n="featuresTitle">Equipment & Features</h2>
       <div class="section-divider"></div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">⚙️</div>
-          <h3>Engine</h3>
+          <h3 data-i18n="featEngine">Engine</h3>
           <ul>
-            <li>Thornycroft 35 HP — original, refitted in 2021</li>
-            <li>Starts on first pull, runs smoothly</li>
-            <li>Oil &amp; filters changed annually</li>
+            <li data-i18n="featEngine1">Thornycroft 35 HP — original, refitted in 2021</li>
+            <li data-i18n="featEngine2">Starts on first pull, runs smoothly</li>
+            <li data-i18n="featEngine3">Oil &amp; filters changed annually</li>
           </ul>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⛵</div>
-          <h3>Rigging &amp; Sails</h3>
+          <h3 data-i18n="featRigging">Rigging &amp; Sails</h3>
           <ul>
-            <li>Standing rigging original, inspected 2021</li>
-            <li>Mainsail with boom reefing</li>
-            <li>Furling genoa</li>
-            <li>Both sails in fair condition</li>
+            <li data-i18n="featRigging1">Standing rigging original, inspected 2021</li>
+            <li data-i18n="featRigging2">Mainsail with boom reefing</li>
+            <li data-i18n="featRigging3">Furling genoa</li>
+            <li data-i18n="featRigging4">Both sails in fair condition</li>
           </ul>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🧭</div>
-          <h3>Navigation</h3>
+          <h3 data-i18n="featNavigation">Navigation</h3>
           <ul>
-            <li>Garmin plotter (charts outdated, reliable for waypoints)</li>
-            <li>Depth sounder</li>
-            <li>Illuminated compass</li>
-            <li>Full navigation lights</li>
+            <li data-i18n="featNav1">Garmin plotter (charts outdated, reliable for waypoints)</li>
+            <li data-i18n="featNav2">Depth sounder</li>
+            <li data-i18n="featNav3">Illuminated compass</li>
+            <li data-i18n="featNav4">Full navigation lights</li>
           </ul>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <h3>Electrical</h3>
+          <h3 data-i18n="featElectrical">Electrical</h3>
           <ul>
-            <li>2 × 100 Ah batteries (new 2023)</li>
-            <li>2 × 20 W solar panels</li>
-            <li>230V installation</li>
-            <li>VHF: NASA Marine SX35 with DSC</li>
+            <li data-i18n="featElec1">2 × 100 Ah batteries (new 2023)</li>
+            <li data-i18n="featElec2">2 × 20 W solar panels</li>
+            <li data-i18n="featElec3">230V installation</li>
+            <li data-i18n="featElec4">VHF: NASA Marine SX35 with DSC</li>
           </ul>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚓</div>
-          <h3>Safety &amp; Anchoring</h3>
+          <h3 data-i18n="featSafety">Safety &amp; Anchoring</h3>
           <ul>
-            <li>Rocna 10 kg + 30 m chain + 30 m rope</li>
-            <li>Extra Danforth anchor</li>
-            <li>Autopilot: Simrad TP32</li>
-            <li>Liferaft (bought new 2019). Lacking inspection.</li>
-            <li>Automatic + manual bilge pump</li>
-            <li>Boarding ladder</li>
+            <li data-i18n="featSafety1">Rocna 10 kg + 30 m chain + 30 m rope</li>
+            <li data-i18n="featSafety2">Extra Danforth anchor</li>
+            <li data-i18n="featSafety3">Autopilot: Simrad TP32</li>
+            <li data-i18n="featSafety4">Liferaft (bought new 2019). Lacking inspection.</li>
+            <li data-i18n="featSafety5">Automatic + manual bilge pump</li>
+            <li data-i18n="featSafety6">Boarding ladder</li>
           </ul>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🛥️</div>
-          <h3>Cruising Comfort</h3>
+          <h3 data-i18n="featComfort">Cruising Comfort</h3>
           <ul>
-            <li>Onboard head with cockpit shower pump</li>
-            <li>Fresh water tank ~50 L</li>
-            <li>Dometic fridge</li>
-            <li>Plastimo Neptune 2000 stove + grill</li>
-            <li>Bimini</li>
-            <li>Honwave T24 tender (very good condition)</li>
+            <li data-i18n="featComfort1">Onboard head with cockpit shower pump</li>
+            <li data-i18n="featComfort2">Fresh water tank ~50 L</li>
+            <li data-i18n="featComfort3">Dometic fridge</li>
+            <li data-i18n="featComfort4">Plastimo Neptune 2000 stove + grill</li>
+            <li data-i18n="featComfort5">Bimini</li>
+            <li data-i18n="featComfort6">Honwave T24 tender (very good condition)</li>
           </ul>
         </div>
       </div>
 
       <div class="work-done">
-        <h3>🔧 Work Done in 2026</h3>
+        <h3 data-i18n="workDoneTitle">🔧 Work Done in 2026</h3>
         <ul>
-          <li>Bottom paint applied</li>
-          <li>Engine maintenance completed</li>
+          <li data-i18n="workDone1">Bottom paint applied</li>
+          <li data-i18n="workDone2">Engine maintenance completed</li>
         </ul>
       </div>
     </div>
@@ -831,7 +897,7 @@
   <section class="gallery-section" id="gallery">
     <div class="gallery-container">
       <div class="fade-in">
-        <h2 class="section-title">Photos</h2>
+        <h2 class="section-title" data-i18n="galleryTitle">Photos</h2>
         <div class="section-divider"></div>
       </div>
       <div class="gallery-grid" id="galleryGrid"></div>
@@ -842,20 +908,20 @@
   <!-- Contact -->
   <section class="contact-section" id="contact">
     <div class="fade-in">
-      <h2 class="section-title">Interested?</h2>
+      <h2 class="section-title" data-i18n="contactTitle">Interested?</h2>
       <div class="section-divider" style="margin: 0.5rem auto 0;"></div>
-      <p style="color: var(--text-light); margin-top: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+      <p style="color: var(--text-light); margin-top: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;" data-i18n="contactText">
         Contact Jerome to arrange a viewing or ask any questions.
       </p>
       <div class="contact-cards">
         <a href="tel:+351911562651" class="contact-card">
           <span class="icon">📞</span>
-          <span class="label">Phone / WhatsApp</span>
+          <span class="label" data-i18n="contactPhone">Phone / WhatsApp</span>
           <span class="value">+351 911 562 651</span>
         </a>
         <a href="mailto:jerome.weidmann@gmx.ch" class="contact-card">
           <span class="icon">✉️</span>
-          <span class="label">Email</span>
+          <span class="label" data-i18n="contactEmailLabel">Email</span>
           <span class="value">jerome.weidmann@gmx.ch</span>
         </a>
       </div>
@@ -864,7 +930,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>Look Alive — Westerly Centaur 26 &middot; For Sale &middot; 2026</p>
+    <p data-i18n="footer">Look Alive — Westerly Centaur 26 &middot; For Sale &middot; 2026</p>
   </footer>
 
   <!-- Lightbox -->
@@ -877,9 +943,246 @@
   </div>
 
   <script>
+    // ── Translations ──
+    const translations = {
+      en: {
+        pageTitle: 'Look Alive — Westerly Centaur 26 for Sale',
+        heroEyebrow: 'Sailboat for Sale',
+        heroTitle: 'Look Alive',
+        heroSubtitle: 'Westerly Centaur 26 — classic British cruiser, ready for adventure',
+        heroTagKeel: 'Twin Keel',
+        heroTagDraft: 'Draft',
+        aboutTitle: 'About the Boat',
+        aboutPara1: 'The <strong>Westerly Centaur 26</strong> is a cherished English cruising yacht, built with solid craftsmanship and designed for comfortable coastal and blue-water sailing. With a shallow 0.9 m draft and twin keels, she can safely beach in hidden coves and reach anchorages deeper-draft boats cannot.',
+        aboutPara2: 'We bought <em>Look Alive</em> in Burriana, Spain, in 2019 and sailed her to Greece in 2020. She spent wonderful summers exploring the Ionian Sea before this season setting off on a new adventure around the Mediterranean — Italy and Sicily.',
+        aboutPara3: 'She offers surprising internal height — you can stand up inside (up to ~1.8 m), making life aboard comfortable for extended cruising.',
+        priceLabel: 'Asking Price',
+        priceLocation: '📍 Currently in Southern Italy — can relocate between Italy &amp; Greece',
+        specsTitle: 'Specifications',
+        specMake: 'Make / Model',
+        specYear: 'Year',
+        specHull: 'Hull Serial',
+        specLength: 'Length',
+        specBeam: 'Beam',
+        specDraft: 'Draft',
+        specDraftValue: '0.9 m (twin keels)',
+        specOrigin: 'Origin',
+        specOriginValue: 'United Kingdom',
+        specType: 'Type',
+        specTypeValue: 'Cruising Yacht',
+        featuresTitle: 'Equipment & Features',
+        featEngine: 'Engine',
+        featEngine1: 'Thornycroft 35 HP — original, refitted in 2021',
+        featEngine2: 'Starts on first pull, runs smoothly',
+        featEngine3: 'Oil &amp; filters changed annually',
+        featRigging: 'Rigging &amp; Sails',
+        featRigging1: 'Standing rigging original, inspected 2021',
+        featRigging2: 'Mainsail with boom reefing',
+        featRigging3: 'Furling genoa',
+        featRigging4: 'Both sails in fair condition',
+        featNavigation: 'Navigation',
+        featNav1: 'Garmin plotter (charts outdated, reliable for waypoints)',
+        featNav2: 'Depth sounder',
+        featNav3: 'Illuminated compass',
+        featNav4: 'Full navigation lights',
+        featElectrical: 'Electrical',
+        featElec1: '2 × 100 Ah batteries (new 2023)',
+        featElec2: '2 × 20 W solar panels',
+        featElec3: '230V installation',
+        featElec4: 'VHF: NASA Marine SX35 with DSC',
+        featSafety: 'Safety &amp; Anchoring',
+        featSafety1: 'Rocna 10 kg + 30 m chain + 30 m rope',
+        featSafety2: 'Extra Danforth anchor',
+        featSafety3: 'Autopilot: Simrad TP32',
+        featSafety4: 'Liferaft (bought new 2019). Lacking inspection.',
+        featSafety5: 'Automatic + manual bilge pump',
+        featSafety6: 'Boarding ladder',
+        featComfort: 'Cruising Comfort',
+        featComfort1: 'Onboard head with cockpit shower pump',
+        featComfort2: 'Fresh water tank ~50 L',
+        featComfort3: 'Dometic fridge',
+        featComfort4: 'Plastimo Neptune 2000 stove + grill',
+        featComfort5: 'Bimini',
+        featComfort6: 'Honwave T24 tender (very good condition)',
+        workDoneTitle: '🔧 Work Done in 2026',
+        workDone1: 'Bottom paint applied',
+        workDone2: 'Engine maintenance completed',
+        galleryTitle: 'Photos',
+        contactTitle: 'Interested?',
+        contactText: 'Contact Jerome to arrange a viewing or ask any questions.',
+        contactPhone: 'Phone / WhatsApp',
+        contactEmailLabel: 'Email',
+        footer: 'Look Alive — Westerly Centaur 26 &middot; For Sale &middot; 2026',
+        galleryPhotos: 'photos',
+        galleryNotFound: 'Gallery manifest not found. Add an images.json file to enable the gallery.',
+        lightboxClose: 'Close',
+        lightboxPrev: 'Previous',
+        lightboxNext: 'Next',
+        heroScroll: 'Scroll',
+        navHero: 'Go to top',
+        navAbout: 'Go to about',
+        navFeatures: 'Go to features',
+        navGallery: 'Go to gallery',
+        navContact: 'Go to contact',
+        boatAlt: 'Look Alive sailboat'
+      },
+      es: {
+        pageTitle: 'Look Alive — Westerly Centaur 26 en Venta',
+        heroEyebrow: 'Velero en Venta',
+        heroTitle: 'Look Alive',
+        heroSubtitle: 'Westerly Centaur 26 — crucero clásico británico, listo para la aventura',
+        heroTagKeel: 'Quilla Gemela',
+        heroTagDraft: 'Calado',
+        aboutTitle: 'Sobre el Barco',
+        aboutPara1: 'El <strong>Westerly Centaur 26</strong> es un velero clásico inglés, construido de manera sólida sólida y diseñado para una cómoda navegación costera y en alta mar. Con su calado de solo 0,9 m y quillas gemelas, puede entrar con seguridad en anclajes donde barcos de mayor calado no pueden.',
+        aboutPara2: 'Compramos <em>Look Alive</em> en Burriana, España, en 2019 y navegamos hasta Grecia en 2020. Pasó maravillosos veranos explorando el mar Jónico antes de que esta temporada emprendiera una nueva aventura por el Mediterráneo — Italia y Sicilia.',
+        aboutPara3: 'Ofrece una altura interior sorprendente — puedes estar de pie en su interior (hasta ~1,8 m), lo que hace cómoda la vida a bordo para periodos prolongados.',
+        priceLabel: 'Precio',
+        priceLocation: '📍 Actualmente en el sur de Italia — se puede reubicar entre Italia y Grecia',
+        specsTitle: 'Especificaciones',
+        specMake: 'Marca / Modelo',
+        specYear: 'Año',
+        specHull: 'Número de serie',
+        specLength: 'Eslora',
+        specBeam: 'Manga',
+        specDraft: 'Calado',
+        specDraftValue: '0,9 m (quilla gemela)',
+        specOrigin: 'Origen',
+        specOriginValue: 'Reino Unido',
+        specType: 'Tipo',
+        specTypeValue: 'Yate de Crucero',
+        featuresTitle: 'Equipamiento y Características',
+        featEngine: 'Motor',
+        featEngine1: 'Thornycroft 35 CV — original, reconstruido en 2021',
+        featEngine2: 'Arranca a la primera, nunca nos ha dado un problema',
+        featEngine3: 'Aceite y filtros cambiados anualmente',
+        featRigging: 'Cubiertas y Velas',
+        featRigging1: 'Jarcia fija, inspeccionada en 2021',
+        featRigging2: 'Mayor enrollable en la botavara',
+        featRigging3: 'Genoa enrollable',
+        featRigging4: 'Ambas velas en estado aceptable',
+        featNavigation: 'Navegación',
+        featNav1: 'Plotter Garmin (cartas desactualizadas, fiable para waypoints)',
+        featNav2: 'Sonda de profundidad',
+        featNav3: 'Brújula iluminada',
+        featNav4: 'Luces de navegación completas',
+        featElectrical: 'Eléctrico',
+        featElec1: '2 × 100 Ah baterías (nuevas 2023)',
+        featElec2: '2 × 20 W paneles solares',
+        featElec3: 'Instalación 230V',
+        featElec4: 'VHF: NASA Marine SX35 con DSC',
+        featSafety: 'Seguridad y Anclaje',
+        featSafety1: 'Rocna 10 kg + 30m cadena + 30m cabo',
+        featSafety2: 'Ancla Danforth de repuesto',
+        featSafety3: 'Autovela: Simrad TP32',
+        featSafety4: 'Balsa salvavidas (comprada nueva 2019). Falta inspección.',
+        featSafety5: 'Bomba de achique automática + manual',
+        featSafety6: 'Plataforma y escalera de baño',
+        featComfort: 'Comodidad de Crucero',
+        featComfort1: 'WC a bordo (sin tanque) y ducha en la bañera',
+        featComfort2: 'Depósito de agua dulce ~50 L',
+        featComfort3: 'Nevera Dometic',
+        featComfort4: 'Cocina Plastimo Neptune 2000 con grill',
+        featComfort5: 'Bimini',
+        featComfort6: 'Auxiliar Honwave T24 (muy buen estado)',
+        workDoneTitle: '🔧 Trabajos Realizados en 2026',
+        workDone1: 'Pintura de obra viva',
+        workDone2: 'Mantenimiento del motor',
+        galleryTitle: 'Fotos',
+        contactTitle: '¿Interesado?',
+        contactText: 'Contacta con Jerome para organizar una visita o hacer cualquier pregunta.',
+        contactPhone: 'Teléfono / WhatsApp',
+        contactEmailLabel: 'Correo',
+        footer: 'Look Alive — Westerly Centaur 26 &middot; En Venta &middot; 2026',
+        galleryPhotos: 'fotos',
+        galleryNotFound: 'No se encontró el manifiesto de la galería. Añade un archivo images.json para habilitar la galería.',
+        lightboxClose: 'Cerrar',
+        lightboxPrev: 'Anterior',
+        lightboxNext: 'Siguiente',
+        heroScroll: 'Desplazar',
+        navHero: 'Ir arriba',
+        navAbout: 'Ir sobre el barco',
+        navFeatures: 'Ir características',
+        navGallery: 'Ir galería',
+        navContact: 'Ir contacto',
+        boatAlt: 'Velero Look Alive'
+      }
+    };
+
+    // ── i18n System ──
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const translation = translations[lang]?.[key];
+        if (translation) {
+          el.innerHTML = translation;
+        }
+      });
+
+      // Update lang switcher buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Update gallery count if already loaded
+      const countEl = document.getElementById('galleryCount');
+      if (countEl && galleryImages.length > 0) {
+        countEl.textContent = `${galleryImages.length} ${translations[lang].galleryPhotos}`;
+      }
+      if (countEl && !galleryImages.length) {
+        countEl.textContent = translations[lang].galleryNotFound;
+      }
+
+      // Update aria-labels
+      const ariaLabels = {
+        lightboxClose: 'lightboxClose',
+        lightboxPrev: 'lightboxPrev',
+        lightboxNext: 'lightboxNext',
+        heroScroll: 'heroScroll',
+        navHero: 'navHero',
+        navAbout: 'navAbout',
+        navFeatures: 'navFeatures',
+        navGallery: 'navGallery',
+        navContact: 'navContact'
+      };
+      Object.entries(ariaLabels).forEach(([selector, key]) => {
+        const el = document.querySelector(selector === 'heroScroll' ? '.scroll-hint' : 
+          selector === 'navHero' ? `[data-target="hero"]` :
+          selector === 'navAbout' ? `[data-target="about"]` :
+          selector === 'navFeatures' ? `[data-target="features"]` :
+          selector === 'navGallery' ? `[data-target="gallery"]` :
+          selector === 'navContact' ? `[data-target="contact"]` :
+          `[aria-label="${translations.en[key]}"]`);
+        if (el) el.setAttribute('aria-label', translations[lang][key]);
+      });
+
+      // Update page title
+      document.title = translations[lang].pageTitle;
+
+      // Update boat alt text
+      document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.alt = translations[lang].boatAlt;
+      });
+
+      // Update lightbox counter
+      if (lightbox.classList.contains('active')) {
+        updateLightbox();
+      }
+    }
+
+    // ── Language Switcher Events ──
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
     // ── Dynamic Gallery ──
-    // All JPG/JPEG files from Pictures/ except the hero image are loaded.
-    // Add or remove images by simply dropping them into the Pictures folder.
     const HERO_FILE = 'IMG_1612.JPG';
     const PICTURES_DIR = 'Pictures/';
 
@@ -889,11 +1192,8 @@
         const images = await resp.json();
         return images.filter(img => img !== HERO_FILE).sort();
       } catch {
-        // Fallback: if images.json doesn't exist, try to discover images
-        // This requires the server to support directory listing, which GitHub Pages doesn't,
-        // so we fall back to an empty gallery with a helpful message.
-        document.getElementById('galleryCount').textContent =
-          'Gallery manifest not found. Add an images.json file to enable the gallery.';
+        const countEl = document.getElementById('galleryCount');
+        if (countEl) countEl.textContent = translations[currentLang].galleryNotFound;
         return [];
       }
     }
@@ -910,7 +1210,7 @@
         item.className = 'gallery-item';
         const img = document.createElement('img');
         img.src = PICTURES_DIR + src;
-        img.alt = 'Look Alive sailboat';
+        img.alt = translations[currentLang].boatAlt;
         img.loading = 'lazy';
         item.appendChild(img);
         item.addEventListener('click', () => openLightbox(i));
@@ -919,7 +1219,7 @@
 
       const countEl = document.getElementById('galleryCount');
       if (galleryImages.length > 0) {
-        countEl.textContent = `${galleryImages.length} photos`;
+        countEl.textContent = `${galleryImages.length} ${translations[currentLang].galleryPhotos}`;
       }
     }
 
@@ -1003,6 +1303,7 @@
     });
 
     // ── Init ──
+    setLang(currentLang);
     initGallery();
   </script>
 
